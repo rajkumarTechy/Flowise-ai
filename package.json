@@ -20,14 +20,15 @@
         "start-worker": "run-script-os",
         "start-worker:windows": "cd packages/server/bin && run worker",
         "start-worker:default": "cd packages/server/bin && ./run worker",
-        "clean": "pnpm --filter \"./packages/**\" clean",
-        "nuke": "pnpm --filter \"./packages/**\" nuke && rimraf node_modules .turbo",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-        "lint": "eslint \"**/*.{js,jsx,ts,tsx,json,md}\"",
+        "clean": "pnpm --filter './packages/**' clean",
+        "nuke": "pnpm --filter './packages/**' nuke && rimraf node_modules .turbo",
+        "format": "prettier --write '**/*.{ts,tsx,md}'",
+        "lint": "eslint '**/*.{js,jsx,ts,tsx,json,md}'",
         "lint-fix": "pnpm lint --fix",
         "quick": "pretty-quick --staged",
         "postinstall": "husky install",
-        "migration:create": "pnpm typeorm migration:create"
+        "migration:create": "pnpm typeorm migration:create",
+        "vercel-build": "apt-get update && apt-get install -y python3-distutils && pnpm build"
     },
     "lint-staged": {
         "*.{js,jsx,ts,tsx,json,md}": "eslint --fix"
@@ -80,7 +81,8 @@
     },
     "engines": {
         "node": ">=18.15.0 <19.0.0 || ^20",
-        "pnpm": ">=9"
+        "pnpm": ">=9",
+        "python": ">=3.7"
     },
     "resolutions": {
         "@google/generative-ai": "^0.24.0",
